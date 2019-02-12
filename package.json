@@ -1,11 +1,10 @@
 {
   "name": "@eidellev/nahman",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/nahman.cjs.js",
   "repository": "git@github.com:eidellev/nahman.git",
   "author": "eidellev",
   "license": "MIT",
-  "main": "dist/nahman.cjs.js",
   "module": "dist/nahman.esm.js",
   "browser": "dist/nahman.umd.js",
   "files": [
@@ -15,16 +14,21 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test": "jest --coverage"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
     "eslint": "^5.13.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.2.2",
     "eslint-plugin-prettier": "^3.0.1",
+    "jest": "^24.1.0",
     "prettier": "^1.16.4",
     "rollup": "^1.1.2",
     "rollup-plugin-commonjs": "^9.2.0",
