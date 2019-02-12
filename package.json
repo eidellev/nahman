@@ -1,0 +1,8 @@
+{
+  "name": "nahman",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:eidellev/nahman.git",
+  "author": "eidellev",
+  "license": "MIT"
+}
