@@ -5,6 +5,22 @@ import cleanup from 'rollup-plugin-cleanup';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
+const babelConfig = {
+  exclude: ['node_modules/**'],
+  plugins: ['lodash'],
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        targets: {
+          node: 'current',
+        },
+        modules: false,
+      },
+    ],
+  ],
+};
+
 export default [
   // browser-friendly UMD build
   {
@@ -15,14 +31,7 @@ export default [
       file: pkg.browser,
       format: 'umd',
     },
-    plugins: [
-      resolve(),
-      commonjs(),
-      babel({
-        exclude: ['node_modules/**'],
-      }),
-      terser(),
-    ],
+    plugins: [resolve(), commonjs(), babel(babelConfig), terser()],
   },
 
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -36,13 +45,6 @@ export default [
     treeshake: true,
     external: ['lodash/fp'],
     output: [{ file: pkg.main, format: 'cjs' }, { file: pkg.module, format: 'es' }],
-    plugins: [
-      resolve(),
-      commonjs(),
-      babel({
-        exclude: ['node_modules/**'],
-      }),
-      cleanup(),
-    ],
+    plugins: [resolve(), commonjs(), babel(babelConfig), cleanup()],
   },
 ];
