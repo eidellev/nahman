@@ -1,1 +1,4 @@
-export * from './toSteps';
+import toSteps from './toSteps';
+import toStepsRight from './toStepsRight';
+
+export default { toSteps, toStepsRight };

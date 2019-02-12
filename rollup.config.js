@@ -29,9 +29,11 @@ export default [
   // `file` and `format` for each target)
   {
     input: 'src/main.js',
-    external: [],
+    external: ['lodash'],
     output: [{ file: pkg.main, format: 'cjs' }, { file: pkg.module, format: 'es' }],
     plugins: [
+      resolve(),
+      commonjs(),
       babel({
         exclude: ['node_modules/**'],
       }),

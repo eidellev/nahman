@@ -4,5 +4,6 @@ module.exports = {
   plugins: ['jest'],
   rules: {
     'prettier/prettier': 'error',
+    'import/prefer-default-export': 'off',
   },
 };
