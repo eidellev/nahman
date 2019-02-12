@@ -23,7 +23,5 @@ export function toSteps(arr) {
     normalizedArr = arr;
   }
 
-  return normalizedArr.map((value, idx, context) => {
-    return context.slice(0, idx + 1);
-  });
+  return normalizedArr.map((value, idx, context) => context.slice(0, idx + 1));
 }
