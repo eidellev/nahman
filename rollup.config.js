@@ -2,7 +2,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import cleanup from 'rollup-plugin-cleanup';
-import { terser } from 'rollup-plugin-terser';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import pkg from './package.json';
 
 const babelConfig = {
@@ -22,29 +22,10 @@ const babelConfig = {
 };
 
 export default [
-  // browser-friendly UMD build
   {
     input: 'src/main.js',
     treeshake: true,
-    output: {
-      name: 'nahman',
-      file: pkg.browser,
-      format: 'umd',
-    },
-    plugins: [resolve(), commonjs(), babel(babelConfig), terser()],
-  },
-
-  // CommonJS (for Node) and ES module (for bundlers) build.
-  // (We could have three entries in the configuration array
-  // instead of two, but it's quicker to generate multiple
-  // builds from a single configuration where possible, using
-  // an array for the `output` option, where we can specify
-  // `file` and `format` for each target)
-  {
-    input: 'src/main.js',
-    treeshake: true,
-    external: ['lodash/fp'],
     output: [{ file: pkg.main, format: 'cjs' }, { file: pkg.module, format: 'es' }],
-    plugins: [resolve(), commonjs(), babel(babelConfig), cleanup()],
+    plugins: [peerDepsExternal(), resolve(), commonjs(), babel(babelConfig), cleanup()],
   },
 ];
