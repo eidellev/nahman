@@ -4,6 +4,7 @@
   "repository": "git@github.com:eidellev/nahman.git",
   "author": "eidellev",
   "license": "MIT",
+  "private": false,
   "main": "dist/nahman.cjs.js",
   "module": "dist/nahman.esm.js",
   "browser": "dist/nahman.umd.js",
