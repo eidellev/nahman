@@ -7,7 +7,7 @@ import isString from 'lodash/isString';
  * @return {*[][]}    Steppified array
  */
 export function toSteps(arr) {
-  if (!arr) {
+  if (arr === undefined || arr === null) {
     return [];
   }
 
@@ -17,7 +17,7 @@ export function toSteps(arr) {
     if (isString(arr)) {
       normalizedArr = arr.split('');
     } else {
-      throw new Error('Expected array or string!');
+      normalizedArr = [arr];
     }
   } else {
     normalizedArr = arr;

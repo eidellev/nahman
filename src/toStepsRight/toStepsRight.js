@@ -1,4 +1,4 @@
-import { flow, reverse, map } from 'lodash/fp';
+import { flow, reverse, map, isNumber, isBoolean } from 'lodash/fp';
 import toSteps from '../toSteps';
 
 /**
@@ -6,4 +6,10 @@ import toSteps from '../toSteps';
  * @param  {*[]} arr  The array we would like to 'steppify'
  * @return {*[][]}    Steppified array
  */
-export const toStepsRight = flow([reverse, toSteps, reverse, map(reverse)]);
+export const toStepsRight = flow([
+  arr => (isNumber(arr) || isBoolean(arr) ? [arr] : arr),
+  reverse,
+  toSteps,
+  reverse,
+  map(reverse),
+]);
