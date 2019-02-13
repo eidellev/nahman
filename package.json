@@ -11,6 +11,7 @@
     "dist"
   ],
   "scripts": {
+    "prepublish": "jest",
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "lint": "eslint .",
