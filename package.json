@@ -1,7 +1,10 @@
 {
   "name": "@eidellev/nahman",
-  "version": "1.2.0",
-  "repository": "git@github.com:eidellev/nahman.git",
+  "version": "1.2.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eidellev/nahman"
+  },
   "author": "eidellev",
   "license": "MIT",
   "private": false,
@@ -10,10 +13,6 @@
   "browser": "dist/nahman.umd.js",
   "engines": {
     "node": ">=10.15.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/eidellev/nahman"
   },
   "bugs": {
     "url": "https://github.com/eidellev/nahman/issues"
