@@ -8,6 +8,16 @@
   "main": "dist/nahman.cjs.js",
   "module": "dist/nahman.esm.js",
   "browser": "dist/nahman.umd.js",
+  "engines": {
+    "node": ">=10.15.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eidellev/nahman"
+  },
+  "bugs": {
+    "url": "https://github.com/eidellev/nahman/issues"
+  },
   "files": [
     "dist"
   ],
